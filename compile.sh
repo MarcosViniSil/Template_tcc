@@ -1,5 +1,5 @@
 #!/bin/bash
 
 rm -rf out/*
-latexmk -pdf -output-directory=out main.tex
-open out/main.pdf
+latexmk -pdf -output-directory=out monografia.tex
+open out/monografia.pdf

@@ -1,0 +1,18 @@
+services:
+  code-server:
+    image: maacosv/tcctools:latest
+    container_name: code-server
+    environment:
+      - DOCKER_USER=$USER
+      - PASSWORD=password # Replace this with your login password
+    volumes:
+      - ./config:/home/coder/.local/share/code-server
+      - ./workspace:/home/coder/workspace
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+
+# mkdir -p config workspace
+# chmod -R 777 config workspace
+# sudo chown -R 1000:1000 config workspace

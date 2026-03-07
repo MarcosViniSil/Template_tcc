@@ -16,3 +16,4 @@ services:
 # mkdir -p config workspace
 # chmod -R 777 config workspace
 # sudo chown -R 1000:1000 config workspace
+# this commands are necessary to give the right permissions to container

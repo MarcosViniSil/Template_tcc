@@ -1,1 +1,62 @@
-A area de tradução automática passou e vem passando por grander mudanças ao longos dos anos, seja evolução em um modelo de tradução específico, através de técnicas de otimização ou até mesmo a criação de uma nova arquitetura ou modelo que constituiu um novo estado da arte. Este capítulo é destinado ao estudo sobre a evolução de técnicas e modelos de tradução, desde os modelos iniciais proposto, até os mais modernos utilizados atualmente
+A área de tradução automática tem passado por transformações significativas ao longo dos anos, seja pela evolução de modelos específicos por meio de técnicas de otimização, seja pela proposição de novas arquiteturas que estabeleceram novos estados da arte. Este capítulo tem como objetivo apresentar um panorama da evolução das técnicas e modelos de tradução automática, desde as abordagens iniciais até os métodos mais recentes, discutindo suas principais características, vantagens e limitações.
+
+\section{Tradução Automática Baseada em Regras}
+A tradução automática baseada em regras, do inglês Rule-Based Machine Translation (RBMT), consiste em sistemas que operam com base em um conjunto de regras linguísticas previamente definidas para a língua de destino. Esses sistemas utilizam regras gramaticais para realizar a tradução entre línguas, exigindo um esforço humano significativo na elaboração de todos os componentes necessários para a tradução de uma língua fonte para uma língua alvo.
+
+Entre esses componentes, destacam-se analisadores morfológicos, etiquetadores de classes gramaticais, analisadores sintáticos, dicionários bilíngues, regras de transferência, geradores morfológicos e regras de reordenação, entre outros \cite{DBLP:journals/corr/abs-1708-04559}.
+
+A Figura \ref{fig:rbmt-processo} ilustra o processo de tradução baseado em regras. Onde uma frase em inglês é fornecida para o sistema, e baseado nas regras pre-definidas da língua portuguesa como língua de destino a tradução é gerada.
+
+\begin{figure}[H]
+	\caption{\label{fig:rbmt-processo}Tradução Automática Baseada em Regras}
+
+	\centering
+		\includegraphics[width=.80\textwidth]{Imagens/RBMT-estado-da-arte.png}
+
+	\legend{Fonte: \cite{charoenpornsawat2002improving} adaptada para português}
+\end{figure}
+
+A tradução automática baseada em regras teve início na década de 1970, sendo considerada um marco na área de tradução automática e uma abordagem inicialmente promissora \cite{wiki:Rule-based_machine_translation}. No entanto, algumas características limitaram sua adoção em larga escala \cite{okpor2014machine}:
+
+\begin{itemize}
+    \item Escassez de dicionários bilíngues de alta qualidade, sendo sua construção uma tarefa custosa;
+    \item Necessidade de configuração manual de diversas informações linguísticas;
+    \item Dificuldade em lidar com ambiguidade linguística e expressões idiomáticas, especialmente em sistemas de grande escala.
+\end{itemize}
+
+Devido a essas limitações, tornou-se necessária a criação de novas abordagens capazes de lidar melhor com ambiguidade, dependências contextuais entre palavras e reduzir a necessidade de intervenção humana na construção das traduções. Nesse contexto, surgiu a tradução automática baseada em estatística (Statistical Machine Translation – SMT), que será abordada no próximo capítulo.
+
+
+\section{Tradução Automática Estatística}
+A abordagem estatística de tradução baseia-se em modelos probabilísticos extraídos de bases textuais bilíngues alinhados, nos quais cada palavra ou frase da língua de destino é associada a elementos da língua fonte segundo uma determinada probabilidade. Dessa forma, as palavras ou expressões com maior probabilidade, dentre as opções geradas pelo modelo, tendem a corresponder à tradução mais adequada \cite{DBLP:journals/corr/abs-1708-04559}.
+
+Em termos práticos, um modelo de tradução estatística é treinado com grandes volumes de textos paralelos, contendo a língua fonte e sua tradução correspondente na língua alvo. A partir desses dados, o modelo aprende padrões de correspondência entre palavras e frases, sendo capaz de estimar a tradução mais provável com base nas ocorrências observadas durante o treinamento \cite{lokalise_smt_2025}.
+
+O processo de tradução estatística envolve dois módulos principais: o modelo de tradução e o modelo de linguagem \cite{wang2017neural}.
+
+O modelo de tradução tem como objetivo mapear como palavras ou frases em uma língua geralmente se correspondem em outra, realizando essa análise no nível de frases, e não apenas de palavras isoladas. Esse cuidado evita traduções que não respeitem o contexto, já que uma mesma palavra na língua fonte pode ter múltiplas traduções possíveis na língua alvo.
+
+O modelo de linguagem, por sua vez, recebe os possíveis mapeamentos gerados pelo modelo de tradução e seleciona a frase que apresenta a maior probabilidade de ocorrência na língua de destino, considerando padrões aprendidos a partir dos textos do corpus. Esse módulo é essencial para produzir traduções mais naturais, que se aproximem do resultado esperado de uma tradução humana.
+
+A imagem abaixo exemplifica este processo de tradução baseado no modelo estatístico. 
+
+\begin{figure}[H]
+	\caption{\label{fig:rbmt-processo}Tradução Automática Baseada em estatística}
+
+	\centering
+		\includegraphics[width=.80\textwidth]{Imagens/estatistica-estado-arte.png}
+
+	\legend{Fonte: \cite{lokalise_smt_2025} adaptada para português}
+\end{figure}
+
+É notavel que traduções baseadas em estatística superaram traduções baseada em Regras, em qualidade e contexto, porém, os seguintes pontos podem ser destacados sobre traduções estatísticas \cite{wang2017neural}:
+
+\begin{itemize}
+    \item Criação de base de dados complexa;
+    \item Resultados inexperados. Fluência superficial pode ser enganosa;
+    \item Tradução baseada em estatística não funciona bem entre línguas que possuem ordem de palavras diferentes;
+    \item Os benefícios das traduções são supervalorizados por línguas europeias.
+\end{itemize}
+
+Para contornar os problemas listados acima um novo modelo foi proposto, o qual foi a base para construção de modelos utilizados atualmente, conhecido como aprenizado profundo, em inglês, deep lerning, que será abordado no próximo capítulo.
+

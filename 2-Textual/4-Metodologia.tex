@@ -19,7 +19,7 @@ A seguir, são apresentados os modelos utilizados neste trabalho, bem como suas 
 \end{itemize}
 
 \section{Tipos de texto}
-
+\label{Text-type}
 Nesta seção são definidos os tipos de texto utilizados na avaliação dos modelos de tradução automática.
 
 Os textos foram organizados em quatro categorias, considerando o tamanho e o domínio do conteúdo, conforme descrito a seguir:
@@ -201,7 +201,7 @@ Abaixo é apresentado um exemplo de uso da ferramenta \textit{time}:
 A flag \textit{-v} permite a exibição de informações detalhadas, incluindo o valor de memória máxima utilizada durante a execução do programa.
 
 \section{Base de Dados}
-
+\label{Database}
 Esta seção apresenta as bases de dados utilizadas nos experimentos de avaliação dos modelos de tradução automática.
 
 \subsection{Textos Conversacionais e Informais}
@@ -283,6 +283,27 @@ Classify the bug as "Documentation Problem". & Classifique o problema como "Docu
     \includegraphics[height=0.7\textwidth]{Imagens/process.pdf}    \caption{\label{fig:procedimento} Procedimento}
     \legend{Fonte: autor}
 \end{figure}
+
+\subsection{Seleção da base de dados}
+
+Conforme descrito na Seção \ref{Database}, a base de dados utilizada neste trabalho será a OPUS (Open Parallel Corpus), escolhida por disponibilizar corpora paralelos públicos para diferentes pares de idiomas. A partir dessa base serão selecionados os conjuntos de textos utilizados nos experimentos, incluindo textos curtos, textos longos e textos de domínio específico.
+
+\subsection{Seleção dos textos}
+
+Conforme apresentado na Seção \ref{Text-type}, os experimentos considerarão três categorias de textos: textos curtos, textos longos e textos de domínio específico. Para cada categoria, serão selecionados pares de sentenças em inglês e português brasileiro.
+
+Durante o processo de seleção, serão removidos dados que apresentem inconsistências que possam comprometer a avaliação dos modelos, tais como traduções incorretas, caracteres inválidos, símbolos não pertencentes ao idioma de destino, excesso de espaços em branco e quebras de linha desnecessárias.
+
+Pretende-se utilizar aproximadamente 100 pares de sentenças para cada categoria de texto, com o objetivo de criar uma diversidade entre os textos escolhidos para tradução. A seleção, filtragem e categorização definitiva dos dados serão realizadas durante a etapa experimental do trabalho.
+
+\subsection{Tradução gerada e métricas}
+
+Após a seleção e limpeza dos dados, cada modelo de tradução irá executar na mesma máquina virtual, sob as mesmas configurações de hardware e receberá exatamente as mesmas sentenças de entrada em inglês, garantindo condições equivalentes durante os experimentos. As traduções geradas serão então comparadas com suas respectivas traduções de referência em português brasileiro.
+
+Durante o processo de inferência, serão coletadas métricas relacionadas ao desempenho computacional, incluindo utilização de CPU, consumo de memória RAM e tempo de execução. Posteriormente, as traduções geradas serão avaliadas por meio das métricas BLEU, BERTScore e chrF, com o objetivo de analisar a qualidade das traduções produzidas por cada modelo.
+
+Para reduzir possíveis variações causadas pelo ambiente de execução, cada experimento será executado três vezes para o mesmo conjunto de sentenças. Ao final, será calculado o valor médio das métricas obtidas em cada execução, bem como a variação observada entre os resultados, permitindo uma análise mais consistente do desempenho dos modelos avaliados.
+
 
 \section{Análise dos dados}
 

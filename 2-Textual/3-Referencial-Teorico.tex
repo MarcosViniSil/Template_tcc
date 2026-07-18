@@ -21,9 +21,9 @@ Tokenização, ou \textit{tokenization} em inglês, é uma etapa de
 pré-processamento fundamental no processamento de linguagem natural. Esse
 processo consiste em converter textos em unidades menores, como bytes,
 caracteres, subpalavras, palavras ou expressões de múltiplas palavras,
-denominadas \textit{tokens}.
+denominadas \textit{tokens} \cite{asgari2025morphbpemorphoawaretokenizerbridging}.
 
-A Figura abaixo ilustra esse processo, no qual um texto é segmentado em tokens
+A Figura \ref{fig:tokenizer-rt} ilustra esse processo, no qual um texto é segmentado em tokens
 e, posteriormente, cada token é representado por um numero, comumente chamado
 de identificador ou id, cujo objetivo é mapear um token de volta à uma palavra
 ao final de uma tradução entre línguas
@@ -44,20 +44,20 @@ O processamento de linguagem natural, em conjunto com tarefas de tradução entr
 línguas, exige que palavras ou tokens sejam representados de forma numérica.
 Nesse contexto, \textit{embeddings} correspondem ao processo de representação
 de palavras ou tokens em um espaço vetorial de múltiplas dimensões, no qual
-relações semânticas podem ser modeladas por meio de relações matemáticas.
+relações semânticas podem ser modeladas por meio de relações matemáticas \cite{llm_embeddings_explained}.
 
 A representação de tokens em vetores de múltiplas dimensões é fundamental, pois
 esses vetores são capazes de capturar informações semânticas relevantes. Dessa
 forma, palavras com significados semelhantes tendem a possuir representações
 vetoriais próximas nesse espaço. Por exemplo, os vetores associados às palavras
 “gato” e “cachorro” tendem a ser mais próximos entre si do que em relação à
-palavra “morango”.
+palavra “morango” \cite{llm_embeddings_explained}.
 
 Essa propriedade é essencial para a geração de traduções mais naturais e
 coerentes, uma vez que permite aos modelos capturar relações semânticas entre
 palavras e contextos linguísticos \cite{llm_embeddings_explained}.
 
-A Figura abaixo ilustra o processo de conversão de uma sequência de tokens em
+A Figura \ref{fig:embedding-rt} ilustra o processo de conversão de uma sequência de tokens em
 representações vetoriais em um espaço de multiplas dimensões.
 
 \begin{figure}[H]
@@ -71,14 +71,14 @@ representações vetoriais em um espaço de multiplas dimensões.
 
 \section{Função Softmax}
 
-\textit{Softmax} é uma função matemática frequentemente utilizada como função de ligação probabilística para dados categóricos não ordenados. Dado um vetor de entradas, a aplicação da função softmax resulta em uma saída composta por uma distribuição de probabilidades, na qual cada valor está associado a um elemento da entrada.
+\textit{Softmax} é uma função matemática frequentemente utilizada como função de ligação probabilística para dados categóricos não ordenados. Dado um vetor de entradas, a aplicação da função softmax resulta em uma saída composta por uma distribuição de probabilidades, na qual cada valor está associado a um elemento da entrada \cite{franke2023softmax}.
 
 A função softmax é amplamente utilizada em modelos de aprendizado de máquina,
 especialmente em tarefas que envolvem classificação e tradução automática,
 sendo responsável por converter pontuações geradas pelo modelo em distribuições
-de probabilidade sobre os possíveis resultados de saída.
+de probabilidade sobre os possíveis resultados de saída \cite{franke2023softmax}.
 
-A função softmax é definida matematicamente como \cite{franke2023softmax}:
+A função softmax é definida na equação \ref{eq:softmax-definition}:
 \begin{equation}
     p_i = \frac{\exp(\alpha s_i)}{\sum_j \exp(\alpha s_j)}
     \label{eq:softmax-definition}
@@ -120,29 +120,29 @@ resultados. A Figura \ref{fig:softmax2-rt} ilustra essa propriedade
 
 O mecanismo de atenção é uma técnica cujo objetivo é identificar e relacionar
 as partes mais relevantes dos dados de entrada durante o processamento de
-sequências.
+sequências \cite{hays2026attentionmechanismsneuralnetworks}.
 
 Grande parte das arquiteturas de tradução automática baseadas em redes neurais
 utiliza dois componentes principais: o codificador (encoder) e o decodificador
 (decoder), conforme apresentado na Seção \ref{chap:NMT}. No entanto, modelos
 tradicionais baseados apenas nessa estrutura enfrentam limitações ao
 representar sequências longas, uma vez que toda a informação precisa ser
-comprimida em um vetor de dimensão fixa.
+comprimida em um vetor de dimensão fixa \cite{hays2026attentionmechanismsneuralnetworks}.
 
 Nesse contexto, os mecanismos de atenção modificam a forma como redes neurais
 processam dados sequenciais, permitindo acesso direto a todas as posições da
 sequência de entrada. Isso elimina a necessidade de compressão em uma única
 representação vetorial e possibilita uma melhor captura de relações
-contextuais.
+contextuais \cite{hays2026attentionmechanismsneuralnetworks}.
 
 A operação de atenção consiste na computação de uma soma ponderada sobre os
 dados de entrada, na qual cada peso representa a importância de uma determinada
 posição da sequência para o elemento que está sendo processado. Na prática,
 isso permite que diferentes partes da entrada se relacionem entre si,
 possibilitando a captura de dependências contextuais entre palavras em tarefas
-de tradução.
+de tradução \cite{hays2026attentionmechanismsneuralnetworks}.
 
-As equações a seguir definem a formulação matemática de um mecanismo de atenção
+As equações \ref{eq:attention-score}, \ref{eq:attention-softmax} e \ref{eq:attention-calculation} definem a formulação matemática de um mecanismo de atenção
 \cite{hays2026attentionmechanismsneuralnetworks}:
 
 \begin{equation}
@@ -194,7 +194,7 @@ palavras, resultando em traduções mais coerentes e contextualizadas.
 \section{Arquitetura Transformer}
 \subsection{Visão Geral}
 
-A arquitetura Transformer foi proposta em 2017 pela empresa Google no artigo
+A arquitetura \textit{Transformer} foi proposta em 2017 pela empresa Google no artigo
 intitulado \textit{“Attention Is All You Need”}, representando uma mudança de
 paradigma em relação aos modelos até então predominantes, baseados em redes
 neurais recorrentes (RNN).
@@ -216,12 +216,12 @@ princípios introduzidos pela arquitetura Transformer
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.6\textwidth]{Imagens/transformer_compressed.pdf}
-    \caption{\label{fig:fig-architecture}Arquitetura transformer}
+    \caption{\label{fig:fig-architecture}Arquitetura Transformer}
     \legend{Fonte: \cite{DBLP:journals/corr/VaswaniSPUJGKP17}}
 \end{figure}
 \subsection{Positional Encoding}
 O \textit{positional encoding}, ou codificação posicional, é uma técnica
-utilizada para incorporar informações sobre a posição dos tokens em uma
+utilizada para incorporar informações sobre a posição dos \textit{tokens} em uma
 sequência na arquitetura Transformer.
 
 Em tarefas de tradução automática, a ordem das palavras desempenha um papel
@@ -236,7 +236,7 @@ implícita. Para contornar essa limitação, são adicionadas informações
 posicionais aos embeddings de entrada por meio de funções determinísticas
 baseadas em seno e cosseno \cite{ibm_positional_encoding}.
 
-A codificação posicional é definida pelas seguintes equações
+A codificação posicional é definida pelas equações \ref{eq:positional-encoding-sin} e \ref{eq:positional-encoding-cos}
 \cite{DBLP:journals/corr/VaswaniSPUJGKP17}:
 
 \begin{equation}
@@ -257,7 +257,7 @@ Onde:
     \item \( d_{model} \): dimensão do vetor de embedding;
     \item \( PE \): função de codificação posicional que associa uma posição da sequência a uma representação vetorial.
 \end{itemize}
-Essas funções permitem que cada posição na sequência seja representada por um vetor único, preservando relações relativas entre posições, o que auxilia o modelo na identificação da ordem dos tokens.
+Essas funções permitem que cada posição na sequência seja representada por um vetor único, preservando relações relativas entre posições, o que auxilia o modelo na identificação da ordem dos \textit{tokens}.
 
 A Figura \ref{fig:fig-positiona-encoding} ilustra o processo de aplicação do
 \textit{positional encoding} em uma sequência de entrada.
@@ -274,13 +274,13 @@ Redes neurais \textit{feed-forward} são modelos computacionais nos quais a
 informação flui em uma única direção, da entrada para a saída, sem a presença
 de ciclos ou realimentação. Essas redes são compostas por camadas de neurônios
 interconectados, nas quais cada conexão possui um peso associado, responsável
-por ajustar a influência dos dados ao longo do processamento.
+por ajustar a influência dos dados ao longo do processamento \cite{sazli2006brief}.
 
 De forma geral, uma rede \textit{feed-forward} é estruturada em três tipos de
 camadas: camada de entrada, responsável por receber os dados, camadas ocultas,
 responsáveis pelo processamento das informações por meio de transformações não
 lineares, e camada de saída, que produz o resultado final do
-modelo.\cite{sazli2006brief}
+modelo \cite{sazli2006brief}.
 
 No contexto da arquitetura Transformer, as redes \textit{feed-forward} são
 aplicadas de forma independente a cada posição da sequência, após o mecanismo
@@ -307,11 +307,12 @@ utilizando três componentes principais: consultas (\textit{queries}), chaves
 (\textit{keys}) e valores (\textit{values}).
 
 A atenção é calculada por meio do produto escalar entre consultas e chaves,
-seguido de uma normalização utilizando a função softmax, conforme a equação
+seguido de uma normalização utilizando a função softmax, conforme a equação \ref{eq:attention-mecanism}
 \cite{DBLP:journals/corr/VaswaniSPUJGKP17}:
 
 \begin{equation}
     {Attention}(Q, K, V) = {softmax}\left( \frac{QK^T}{\sqrt{d_k}} \right)V
+    \label{eq:attention-mecanism}
 \end{equation}
 
 onde:
@@ -338,21 +339,23 @@ uma dessas projeções é processada por um mecanismo de atenção independente,
 denominado \textit{head}.
 
 Essa abordagem permite que o modelo aprenda diferentes representações e
-relações entre os tokens, como dependências sintáticas e semânticas,
+relações entre os \textit{tokens}, como dependências sintáticas e semânticas,
 contribuindo para uma compreensão mais rica do contexto da sequência
 \cite{liu2021multi}.
 
 A formulação matemática do mecanismo de \textit{multi-head attention} é dada
-por \cite{DBLP:journals/corr/VaswaniSPUJGKP17}:
+pelas equações \ref{eq:multi-head-attention} e  \ref{eq:head-mecanism-attention} \cite{DBLP:journals/corr/VaswaniSPUJGKP17}:
 
 \begin{equation}
     {MultiHead}(Q, K, V) = {Concat}({head}_1, \dots, {head}_h)W^O
+    \label{eq:multi-head-attention}
 \end{equation}
 
 onde cada \textit{head} é definido como:
 
 \begin{equation}
     {head}_i = {Attention}(QW_i^Q, KW_i^K, VW_i^V)
+    \label{eq:head-mecanism-attention}
 \end{equation}
 
 Nesse contexto, \(W_i^Q\), \(W_i^K\) e \(W_i^V\) são matrizes de projeção
@@ -366,11 +369,11 @@ Transformer, responsável por receber a sequência de entrada já convertida em
 embeddings e enriquecida com informações de posição por meio do
 \textit{positional encoding}. Seu objetivo é transformar essa sequência em um
 conjunto de representações vetoriais contextuais, capazes de capturar relações
-semânticas relevantes entre os tokens.
+semânticas relevantes entre os \textit{tokens}.
 
 Cada bloco do encoder é composto por duas subcamadas principais. A primeira é o
 mecanismo de atenção (\textit{self-attention}), responsável por relacionar os
-tokens da sequência entre si, permitindo a captura de dependências de curto e
+\textit{tokens} da sequência entre si, permitindo a captura de dependências de curto e
 longo alcance. A segunda subcamada é a rede \textit{feed-forward}, aplicada de
 forma independente a cada posição da sequência, com o objetivo de transformar e
 enriquecer as representações vetoriais geradas pela etapa anterior.
@@ -398,13 +401,13 @@ sendo cada bloco formado por três subcamadas principais: \textit{Masked
 
 A subcamada de \textit{Masked Self-Attention} aplica o mecanismo de atenção
 sobre a própria sequência de saída, porém com uma máscara que impede o modelo
-de acessar tokens futuros. Dessa forma, a geração ocorre de maneira
-autoregressiva, considerando apenas os tokens já produzidos até o momento, o
+de acessar \textit{tokens} futuros. Dessa forma, a geração ocorre de maneira
+autoregressiva, considerando apenas os \textit{tokens} já produzidos até o momento, o
 que garante coerência na construção da tradução.
 
 A subcamada de \textit{Cross-Attention} permite que o decoder utilize as
-informações produzidas pelo encoder, estabelecendo relações entre os tokens da
-sequência de saída e os tokens da sequência de entrada. Esse mecanismo é
+informações produzidas pelo encoder, estabelecendo relações entre os \textit{tokens} da
+sequência de saída e os \textit{tokens} da sequência de entrada. Esse mecanismo é
 essencial para alinhar corretamente a tradução com o contexto da frase
 original.
 
@@ -510,17 +513,18 @@ A ideia central da métrica BLEU é que traduções automáticas de maior qualid
 
 O valor da métrica BLEU varia no intervalo de 0 a 1, onde valores mais próximos de 1 indicam maior similaridade com a tradução de referência, enquanto valores próximos de 0 indicam baixa similaridade \cite{papineni2002bleu}.
 
-A formulação matemática da métrica BLEU é definida como:
+A formulação matemática da métrica BLEU é definida como \ref{eq:bleu}
 
-\begin{align*}
+\begin{equation} \label{eq:bleu}
+\begin{aligned}
     \text{BP}   & =
     \begin{cases}
         1           & \text{if } c > r    \\
         e^{(1-r/c)} & \text{if } c \leq r
-    \end{cases} .                                                 \\
-    \text{Então,}                                                                      \\
+    \end{cases},  \\[6pt]
     \text{BLEU} & = \text{BP} \cdot \exp \left( \sum_{n=1}^{N} w_n \log p_n \right) .
-\end{align*}
+\end{aligned}
+\end{equation}
 
 Onde:
 
@@ -536,14 +540,14 @@ Onde:
 
     Diferentemente de métricas baseadas em correspondência exata de n-gramas, como o BLEU, o BERTScore avalia a similaridade entre uma sentença gerada e uma sentença de referência por meio de representações vetoriais contextuais (\textit{embeddings}) obtidas a partir de modelos pré-treinados, como o BERT.
 
-    O cálculo do BERTScore é realizado por meio da comparação entre os embeddings de cada token da sentença gerada e os embeddings dos tokens da sentença de referência. Para cada token, é calculada uma medida de similaridade (geralmente baseada em cosseno), permitindo capturar relações semânticas mesmo quando não há correspondência exata entre as palavras.
+    O cálculo do BERTScore é realizado por meio da comparação entre os embeddings de cada token da sentença gerada e os embeddings dos \textit{tokens} da sentença de referência. Para cada token, é calculada uma medida de similaridade (geralmente baseada em cosseno), permitindo capturar relações semânticas mesmo quando não há correspondência exata entre as palavras.
 
     A avaliação por meio do BERTScore é composta pelas métricas de precisão, revocação e F1-score.
 
     Onde:
 
 \begin{itemize}
-    \item Precisão: considera a sentença gerada pelo modelo e mede o quanto os tokens gerados estão semanticamente alinhados com a sentença de referência;
+    \item Precisão: considera a sentença gerada pelo modelo e mede o quanto os \textit{tokens} gerados estão semanticamente alinhados com a sentença de referência;
     
     \item Revocação: considera a sentença de referência e avalia o quanto seu conteúdo está presente na sentença gerada pelo modelo;
     
@@ -562,10 +566,11 @@ Onde:
     \cite{emergentmind2026chrf}.
 
 
-    A formulação matemática da métrica chrF é definida como \cite{popovic2015chrf}:
+    A formulação matemática da métrica chrF é definida como \ref{eq:chrf-formula} \cite{popovic2015chrf}:
     
     \begin{equation}
     \text{CHRF}\beta = (1 + \beta^2) \frac{\text{CHRP} \cdot \text{CHRR}}{\beta^2 \cdot \text{CHRP} + \text{CHRR}}
+    \label{eq:chrf-formula}
     \end{equation}
 
 onde:
@@ -578,19 +583,6 @@ onde:
     \item \(\beta\): parâmetro que controla a importância relativa entre precisão e revocação. Quando \(\beta = 1\), ambas possuem o mesmo peso.
 \end{itemize}
 
-\section{Eficiência Computacional}
-Eficiência computacional refere-se à capacidade de um algoritmo, programa ou sistema de computador de realizar uma determinada tarefa utilizando a menor quantidade possível de recursos 
-\cite{duenha_apostila_arq}.
-
-Entre os principais recursos utilizados na avaliação da eficiência computacional, destacam-se:
-
-\begin{itemize}
-    \item Tempo de execução: corresponde ao tempo necessário para que um programa execute uma tarefa específica. Esse tempo pode ser interpretado como o número de operações primitivas ou passos realizados pelo algoritmo para uma determinada entrada;
-    
-    \item Consumo de recursos computacionais: envolve a quantidade de memória RAM, uso de CPU e armazenamento em disco necessários para a execução do algoritmo ou sistema;
-    
-    \item Análise assintótica: geralmente expressa por meio da notação Big O, descreve como o tempo de execução ou o uso de recursos cresce em função do tamanho da entrada, especialmente quando esse tamanho tende ao infinito.
-\end{itemize}
 
 
 

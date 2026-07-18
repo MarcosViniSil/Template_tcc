@@ -15,35 +15,29 @@ Ainda antes de 2017, modelos baseados em redes neurais recorrentes (RNN) passara
 
 Atualmente, existem diversos modelos de tradução baseados na arquitetura Transformer e disponibilizados como código aberto. Empresas como Meta e Google, além de iniciativas como o MarianMT, que não possui fins lucrativos, estão em constante desenvolvimento e pesquisa na área de tradução entre línguas \cite{feiner2025universal}. Esse cenário evidencia que a área de tradução automática encontra-se em constante evolução, podendo trazer benefícios em escala global, especialmente para a população brasileira, na qual apenas uma parcela possui fluência na língua inglesa \cite{oliveira2026apenas}. Dessa forma, avanços em modelos de tradução podem ser amplamente aproveitados por pessoas que desejam ou necessitam consumir, comprar ou até mesmo comercializar produtos e conteúdos em outros idiomas, especialmente em inglês.
 
-Apesar da ampla disponibilidade de modelos de tradução baseados na arquitetura Transformer, sejam eles desenvolvidos por organizações com ou sem fins lucrativos, existem diferenças relevantes entre esses modelos. Tais diferenças podem estar relacionadas à forma como a arquitetura é implementada, bem como às bases de dados utilizadas durante o treinamento. Como consequência, essas variações podem impactar diretamente o comportamento dos modelos em diferentes cenários, influenciando aspectos como consumo de memória, uso de CPU e tempo de resposta, mesmo quando submetidos à mesma entrada.
+Apesar da ampla disponibilidade de modelos de tradução baseados na arquitetura Transformer, sejam eles desenvolvidos por organizações com ou sem fins lucrativos, existem diferenças relevantes entre esses modelos. Tais diferenças podem estar relacionadas à língua de tradução de destino, tamanho do modelo, hardware em que o modelo é executado etc. Podendo levar a diferentes resultados a depender do contexto o qual a tradução é realizada \cite{licht2026validating}.
 
 Diante desse contexto, este trabalho propõe a comparação entre diferentes modelos de tradução automática, com o objetivo de analisar seus desempenhos e apresentar resultados que auxiliem na escolha do modelo mais adequado para diferentes cenários de uso, considerando a tradução entre uma língua de origem e uma língua de destino.
 
 \section{Problema}
 
-A seguinte questão constitue o problema desta pesquisa: 
-Qual é o desempenho de diferentes modelos de tradução entre línguas e automática, baseados na arquitetura Transformer para a tarefa de tradução do inglês para o português, considerando métricas como consumo de memória RAM, uso de CPU, pontuação BLEU, BERTScore e chrF, em diferentes cenários de teste?
+A seguinte questão constitui o problema desta pesquisa: 
+Qual é o desempenho de diferentes modelos de tradução automática entre línguas, baseados na arquitetura Transformer para a tarefa de tradução do inglês para o português, considerando métricas como consumo de memória RAM, uso de CPU, pontuação BLEU, BERTScore e chrF, em diferentes cenários de teste?
 
 
 \section{Objetivos}
 
 %\textbf{Objetivo geral.}
-Para responder ao problema proposto, o objetivo geral deste trabalho é investigar e comparar o desempenho de modelos de tradução entre línguas e automática baseados na arquitetura Transformer na tarefa de tradução do inglês para o português, considerando métricas de qualidade (BLEU, BERTScore e chrF) e eficiência computacional (uso de memória RAM e CPU) em diferentes cenários experimentais.
+Para responder ao problema proposto, o objetivo geral deste trabalho é investigar e comparar o desempenho de modelos de tradução automática entre línguas baseados na arquitetura Transformer na tarefa de tradução do inglês para o português, considerando métricas de qualidade (BLEU, BERTScore e chrF) e eficiência computacional (uso de memória RAM e CPU) em diferentes cenários experimentais.
 
 Também, objetivam-se mais especificamente:
 
-\begin{enumerate}
-	\item Revisão bibliográfica sobre o funcionamento de modelos de tradução automática neural baseados na arquitetura Transformer;
-
-	\item Selecionar e configurar os modelos de tradução automática neural de código aberto;
-
-	\item Selecionar base de dados pública para comparação entre os modelos de tradução automática neural;
-	
+\begin{enumerate}	
     \item Avaliar qualidade de tradução utilizando metricas como BLEU, BERTScore e chrF;
     
     \item Medir eficiência de recursos computacionais quando se utiliza modelos de tradução;
     
-    \item Avaliar os modelos de tradução diferentes cenários de teste;
+    \item Avaliar os modelos de tradução em diferentes cenários de teste;
     
     \item Analisar correlação entre métricas de qualidade de tradução.
 

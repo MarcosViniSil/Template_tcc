@@ -1,6 +1,6 @@
-Segundo \cite{gil2002elaborar}, a pesquisa experimental consiste na definição de um objeto de estudo, na seleção de variáveis capazes de influenciá-lo e na determinação de formas de controle e observação dos efeitos produzidos por essas variáveis. Com base nessa definição, o presente trabalho caracteriza-se como uma pesquisa de natureza experimental, uma vez que modelos de tradução automática neural baseados na arquitetura Transformer serão comparados e submetidos a diferentes cenários e bases de dados.
+Segundo \citeonline{gil2002elaborar}, a pesquisa experimental consiste na definição de um objeto de estudo, na seleção de variáveis capazes de influenciá-lo e na determinação de formas de controle e observação dos efeitos produzidos por essas variáveis. Com base nessa definição, o presente trabalho caracteriza-se como uma pesquisa de natureza experimental, uma vez que modelos de tradução automática neural baseados na arquitetura Transformer serão comparados e submetidos a diferentes cenários e bases de dados.
 
-Além disso, de acordo com \cite{da2002apostila}, a pesquisa quantitativa utiliza linguagem matemática para descrever fenômenos e analisar relações entre variáveis. Nesse contexto, este trabalho também possui caráter quantitativo, pois os modelos serão avaliados por meio de métricas como BLEU, BERTScore e chrF, bem como por medidas de eficiência computacional, obtidas a partir de experimentos controlados.
+Além disso, de acordo com \citeonline{da2002apostila}, a pesquisa quantitativa utiliza linguagem matemática para descrever fenômenos e analisar relações entre variáveis. Nesse contexto, este trabalho também possui caráter quantitativo, pois os modelos serão avaliados por meio de métricas como BLEU, BERTScore e chrF, bem como por medidas de eficiência computacional, obtidas a partir de experimentos controlados.
 
 
 \section{Modelos}
@@ -124,24 +124,22 @@ print(chrf)
 
 \section{Ambiente Computacional}
 
-Com o objetivo de garantir um ambiente controlado e uniforme para a comparação entre os modelos de tradução, optou-se pela utilização de um ambiente virtual em nuvem (\textit{cloud}) para execução dos experimentos.A plataforma escolhida foi a \textbf{DigitalOcean}, devido à disponibilidade de instâncias com cobrança por hora e oferta de máquinas com alto desempenho, o que possibilita maior flexibilidade na execução dos testes.
+Com o objetivo de garantir um ambiente controlado e uniforme para a comparação entre os modelos de tradução, será utilizado um computador pessoal que não está mais em utilização, este sendo responsável pela execução de todos os testes a fim de garantir um ambiente justo entre os modelos propostos.
 
-A Tabela abaixo apresenta as especificações da máquina virtual utilizada nos experimentos:
+A Tabela \ref{tab:ambiente_computacional} apresenta as especificações do hardware utilizado nos experimentos:
 
 \begin{table}[H]
 \centering
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}| }
 \hline
-\multicolumn{1}{|p{3cm}|}{\centering\textbf{Memória RAM}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Núcleos (vCPU)}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Transferência de dados}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Armazenamento}} \\
+\multicolumn{1}{|p{3cm}|}{\centering\textbf{Memória RAM}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Processador}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Armazenamento}} & \multicolumn{1}{p{3cm}|}{\centering\textbf{Sistema operacional}} \\
 \hline
-\multicolumn{1}{|p{3cm}|}{\centering 16 GB} & \multicolumn{1}{p{3cm}|}{\centering 8 vCPUs} & \multicolumn{1}{p{3cm}|}{\centering 6 TB} & \multicolumn{1}{p{3cm}|}{\centering 100 GB} \\
+\multicolumn{1}{|p{3cm}|}{\centering 16 GB DDR3} & \multicolumn{1}{p{3cm}|}{\centering i5 3470} & \multicolumn{1}{p{3cm}|}{\centering SSD 256 GB} & \multicolumn{1}{p{3cm}|}{\centering Ubuntu server 26.04} \\
 \hline
 \end{tabular}
-\caption{Especificações da máquina virtual utilizada}
+\caption{Especificações do hardware utilizado}
 \label{tab:ambiente_computacional}
 \end{table}
-
-Cabe destacar que, por se tratar de um ambiente virtualizado, informações detalhadas sobre o hardware físico, como modelo do processador ou tipo de memória, não são explicitamente fornecidas pela plataforma. Isso ocorre porque a instância virtual pode ser alocada dinamicamente sobre diferentes máquinas físicas, dependendo da disponibilidade no momento da criação.
 
 \section{Desempenho Computacional}
 
@@ -278,6 +276,8 @@ Classify the bug as "Documentation Problem". & Classifique o problema como "Docu
 
 \section{Procedimento de Execução}
 
+A figura \ref{fig:procedimento} demostra os passos para a realização dos testes e coleta dos dados
+
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.7\textwidth]{Imagens/process.pdf}    \caption{\label{fig:procedimento} Procedimento}
@@ -292,7 +292,7 @@ Conforme descrito na Seção \ref{Database}, a base de dados utilizada neste tra
 
 Conforme apresentado na Seção \ref{Text-type}, os experimentos considerarão três categorias de textos: textos curtos, textos longos e textos de domínio específico. Para cada categoria, serão selecionados pares de sentenças em inglês e português brasileiro.
 
-Durante o processo de seleção, serão removidos dados que apresentem inconsistências que possam comprometer a avaliação dos modelos, tais como traduções incorretas, caracteres inválidos, símbolos não pertencentes ao idioma de destino, excesso de espaços em branco e quebras de linha desnecessárias.
+Durante o processo de seleção, serão removidos dados que apresentem inconsistências que possam comprometer a avaliação dos modelos, tais como, caracteres inválidos, símbolos não pertencentes ao idioma de destino, excesso de espaços em branco e quebras de linha desnecessárias.
 
 Pretende-se utilizar aproximadamente 100 pares de sentenças para cada categoria de texto, com o objetivo de criar uma diversidade entre os textos escolhidos para tradução. A seleção, filtragem e categorização definitiva dos dados serão realizadas durante a etapa experimental do trabalho.
 

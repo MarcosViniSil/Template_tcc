@@ -1,7 +1,7 @@
 A área de tradução automática tem passado por transformações significativas ao longo dos anos, seja pela evolução de modelos específicos por meio de técnicas de otimização, seja pela proposição de novas arquiteturas que estabeleceram novos estados da arte. Este capítulo tem como objetivo apresentar um panorama da evolução das técnicas e modelos de tradução automática, desde as abordagens iniciais até os métodos mais recentes, discutindo suas principais características, vantagens e limitações.
 
 \section{Tradução Automática Baseada em Regras}
-A tradução automática baseada em regras, do inglês Rule-Based Machine Translation (RBMT), consiste em sistemas que operam com base em um conjunto de regras linguísticas previamente definidas para a língua de destino. Esses sistemas utilizam regras gramaticais para realizar a tradução entre línguas, exigindo um esforço humano significativo na elaboração de todos os componentes necessários para a tradução de uma língua de origem para uma língua de destino.
+A tradução automática baseada em regras, do inglês \textit{Rule-Based Machine Translation(RBMT)}, consiste em sistemas que operam com base em um conjunto de regras linguísticas previamente definidas para a língua de destino. Esses sistemas utilizam regras gramaticais para realizar a tradução entre línguas, exigindo um esforço humano significativo na elaboração de todos os componentes necessários para a tradução de uma língua de origem para uma língua de destino.
 
 Entre esses componentes, destacam-se analisadores morfológicos, etiquetadores de classes gramaticais, analisadores sintáticos, dicionários bilíngues, regras de transferência, geradores morfológicos e regras de reordenação, entre outros \cite{DBLP:journals/corr/abs-1708-04559}.
 
@@ -24,7 +24,7 @@ A tradução automática baseada em regras teve início na década de 1970, send
     \item Dificuldade em lidar com ambiguidade linguística e expressões idiomáticas, especialmente em sistemas de grande escala.
 \end{itemize}
 
-Devido a essas limitações, tornou-se necessária a criação de novas abordagens capazes de lidar melhor com ambiguidade, dependências contextuais entre palavras e reduzir a necessidade de intervenção humana na construção das traduções. Nesse contexto, surgiu a tradução automática baseada em Estatística (Statistical Machine Translation – SMT), que será abordada na na próxima seção.
+Devido a essas limitações, tornou-se necessária a criação de novas abordagens capazes de lidar melhor com ambiguidade, dependências contextuais entre palavras e reduzir a necessidade de intervenção humana na construção das traduções. Nesse contexto, surgiu a tradução automática baseada em Estatística (\textit{Statistical Machine Translation – SMT}), que será abordada na na próxima seção.
 
 
 \section{Tradução Automática Estatística}
@@ -34,9 +34,9 @@ Em termos práticos, um modelo de tradução estatística é treinado com grande
 
 O processo de tradução estatística envolve dois módulos principais: o modelo de tradução e o modelo de linguagem \cite{wang2017neural}.
 
-O modelo de tradução tem como objetivo mapear como palavras ou frases em uma língua geralmente se correspondem em outra, realizando essa análise no nível de frases, e não apenas de palavras isoladas. Esse cuidado evita traduções que não respeitem o contexto, já que uma mesma palavra na língua de origem pode ter múltiplas traduções possíveis na língua de destino.
+O modelo de tradução tem como objetivo mapear como palavras ou frases em uma língua geralmente se correspondem em outra, realizando essa análise no nível de frases, e não apenas de palavras isoladas. Esse cuidado evita traduções que não respeitem o contexto, já que uma mesma palavra na língua de origem pode ter múltiplas traduções possíveis na língua de destino \cite{wang2017neural}.
 
-O modelo de linguagem, por sua vez, recebe os possíveis mapeamentos gerados pelo modelo de tradução e seleciona a frase que apresenta a maior probabilidade de ocorrência na língua de destino, considerando padrões aprendidos a partir dos textos da base de observação. Esse módulo é essencial para produzir traduções mais naturais, que se aproximem do resultado esperado de uma tradução humana.
+O modelo de linguagem, por sua vez, recebe os possíveis mapeamentos gerados pelo modelo de tradução e seleciona a frase que apresenta a maior probabilidade de ocorrência na língua de destino, considerando padrões aprendidos a partir dos textos da base de observação. Esse módulo é essencial para produzir traduções mais naturais, que se aproximem do resultado esperado de uma tradução humana \cite{wang2017neural}.
 
 A imagem abaixo exemplifica este processo de tradução baseado no modelo estatístico. 
 
@@ -64,11 +64,11 @@ Para contornar os problemas listados acima, um novo modelo foi proposto, o qual 
 \section{Tradução Automática Neural}
 \label{chap:NMT}
 
-A tradução automática neural, em sua essência, utiliza redes neurais artificiais (Artificial Neural Networks - ANN), cujo objetivo é simular, de forma simplificada, o funcionamento do cérebro humano. Em termos gerais, o sistema recebe uma entrada, neste caso, um texto na língua de origem, e por meio de módulos internos da rede neural, realiza a tradução para a língua de destino.
+A tradução automática neural, em sua essência, utiliza redes neurais artificiais (Artificial Neural Networks - ANN), cujo objetivo é simular, de forma simplificada, o funcionamento do cérebro humano. Em termos gerais, o sistema recebe uma entrada, neste caso, um texto na língua de origem, e por meio de módulos internos da rede neural, realiza a tradução para a língua de destino \cite{DBLP:journals/corr/abs-1709-07809}.
 
-O processo de tradução é realizado por meio de dois componentes principais: o codificador (encoder) e o decodificador (decoder).
+O processo de tradução é realizado por meio de dois componentes principais: o codificador \textit{(encoder)} e o decodificador \textit{(decoder)} \cite{DBLP:journals/corr/abs-1709-07809}.
 
-O componente de codificação tem como objetivo mapear o texto de entrada em um vetor de valores reais de múltiplas dimensões. Esse vetor representa, de forma abstrata, informações relevantes necessárias para a realização da tradução. A partir dessa representação vetorial, o componente de decodificação utiliza essas informações para gerar o texto correspondente na língua de destino.
+O componente de codificação tem como objetivo mapear o texto de entrada em um vetor de valores reais de múltiplas dimensões. Esse vetor representa, de forma abstrata, informações relevantes necessárias para a realização da tradução. A partir dessa representação vetorial, o componente de decodificação utiliza essas informações para gerar o texto correspondente na língua de destino \cite{DBLP:journals/corr/abs-1709-07809}fdesenvolvimento da arquitetura Transformer.
 
 De forma geral, o processo de tradução automática neural pode ser descrito pelas seguintes etapas \cite{DBLP:journals/corr/abs-1709-07809}:
 
@@ -88,7 +88,7 @@ A Figura \ref{fig:nmt-processo} ilustra o processo de tradução utilizando rede
 	\legend{Fonte: \cite{elaffendi2022beyond}}
 \end{figure}
 
-O uso da tradução automática neural (Neural Machine Translation – NMT) representou, por muitos anos, uma substituição às técnicas de tradução baseadas em métodos estatísticos. Com a utilização da NMT, tornou-se possível gerar traduções sem a necessidade de intervenção humana direta, baseando-se inteiramente em grandes bases de textos e suas respectivas traduções, abordagem conhecida como aprendizado fim a fim (end-to-end) \cite{DBLP:journals/corr/abs-1709-07809}. 
+O uso da tradução automática neural \textit{(Neural Machine Translation – NMT)} representou, por muitos anos, uma substituição às técnicas de tradução baseadas em métodos estatísticos. Com a utilização da NMT, tornou-se possível gerar traduções sem a necessidade de intervenção humana direta, baseando-se inteiramente em grandes bases de textos e suas respectivas traduções, abordagem conhecida como aprendizado fim a fim \textit{(end-to-end)} \cite{DBLP:journals/corr/abs-1709-07809}. 
 
 Essa abordagem possibilitou a geração de traduções com maior captura de contexto e maior naturalidade quando comparadas às traduções estatísticas e baseadas em regras, além de melhorar a modelagem das relações entre palavras em uma sentença, um dos principais desafios enfrentados pelas abordagens anteriores \cite{wang2017neural}. 
 
@@ -103,7 +103,7 @@ Apesar dos avanços proporcionados pela tradução automática neural em relaç�
 \end{itemize}
 
 
-Com o objetivo de contornar essas limitações, novas abordagens foram propostas, incluindo o uso de mecanismos de atenção, melhorias na paralelização e, posteriormente, o desenvolvimento da arquitetura Transformer.\cite{DBLP:journals/corr/VaswaniSPUJGKP17} 
+Com o objetivo de contornar essas limitações, novas abordagens foram propostas, incluindo o uso de mecanismos de atenção, melhorias na paralelização e, posteriormente, o desenvolvimento da arquitetura Transformer \cite{DBLP:journals/corr/VaswaniSPUJGKP17}.
 
 Dessa forma, o próximo capítulo tem como objetivo apresentar essas abordagens, bem como conceitos relacionados que contribuem para o entendimento da evolução dos modelos de tradução automática neural até os modelos mais recentes, que apresentam elevado desempenho na tarefa de tradução entre línguas.
 

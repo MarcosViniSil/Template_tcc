@@ -25,11 +25,9 @@ Nesta seção são definidos os tipos de texto utilizados na avaliação dos mod
 Os textos foram organizados em quatro categorias, considerando o tamanho e o domínio do conteúdo, conforme descrito a seguir:
 
 \begin{itemize}
-    \item \textbf{Textos curtos}: textos com até 15 palavras de domínio conversacional e informal;
-    
-    \item \textbf{Textos longos}: textos com mais de 15 palavras de domínio conversacional e informal;
+    \item \textbf{Textos gerais}: textos de domínio conversacional e informal com média de 6 palavras por sentença;
 
-    \item \textbf{Textos específicos}: textos associados a domínios especializados, como a área de tecnologia da informação, também obtidos a partir de bases de dados públicas.
+    \item \textbf{Textos específicos}: textos associados a domínios especializados, como a área de tecnologia da informação com média de 6 palavras por sentença.
 
 \end{itemize}
 
@@ -315,15 +313,6 @@ A comparação entre os modelos de tradução será realizada a partir da utiliz
 
 Para cada sentença de entrada, será gerada uma tradução por cada modelo avaliado. As saídas produzidas serão então comparadas com as respectivas traduções de referência por meio das métricas BLEU, BERTScore e chrF. Além disso, serão coletadas métricas relacionadas ao desempenho computacional, incluindo uso de memória RAM, utilização de CPU e tempo de execução durante o processo de inferência.
 
-\subsection{Comparação entre tipos de texto}
-
-A análise também considera o impacto das características dos textos de entrada no desempenho dos modelos. Para isso, os dados serão organizados em duas dimensões principais: tamanho do texto e domínio do conteúdo.
-
-Em relação ao tamanho, as sentenças serão classificadas em categorias previamente definidas, como textos curtos e textos longos, com base no número de palavras ou tokens. Já em relação ao domínio, os textos serão agrupados em categorias distintas, como textos conversacionais e textos técnicos, sendo estes últimos compostos por conteúdos relacionados à linguagem de programação PHP e à documentação web da fundação Mozilla.
-
-Para cada categoria, um conjunto equivalente de sentenças será selecionado e submetido a todos os modelos avaliados. As métricas de qualidade (BLEU, BERTScore e chrF) e de desempenho computacional serão calculadas individualmente para cada categoria.
-
-Os resultados serão analisados de forma comparativa, por meio de tabelas e representações gráficas, permitindo observar o comportamento dos modelos em diferentes cenários.
 
 \subsection{Correlação entre métricas}
 

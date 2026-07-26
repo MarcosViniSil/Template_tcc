@@ -197,12 +197,12 @@ palavras, resultando em traduções mais coerentes e contextualizadas.
 A arquitetura \textit{Transformer} foi proposta em 2017 pela empresa Google no artigo
 intitulado \textit{“Attention Is All You Need”}, representando uma mudança de
 paradigma em relação aos modelos até então predominantes, baseados em redes
-neurais recorrentes (RNN).
+neurais recorrentes (RNN) \cite{build-llms-from-scratch-book}.
 
 Essa arquitetura introduziu avanços importantes, como a capacidade de capturar
 dependências de longo alcance entre elementos de uma sequência e o
 processamento paralelo dos dados, resultando em um novo estado da arte em
-diversas tarefas de processamento de linguagem natural.
+diversas tarefas de processamento de linguagem natural \cite{build-llms-from-scratch-book}.
 
 A partir da arquitetura Transformer, tornou-se possível o desenvolvimento de
 modelos avançados de geração de texto, como o GPT, da OpenAI, o Gemini, da
@@ -222,13 +222,13 @@ princípios introduzidos pela arquitetura Transformer
 \subsection{Positional Encoding}
 O \textit{positional encoding}, ou codificação posicional, é uma técnica
 utilizada para incorporar informações sobre a posição dos \textit{tokens} em uma
-sequência na arquitetura Transformer.
+sequência na arquitetura Transformer \cite{DBLP:journals/corr/VaswaniSPUJGKP17}.
 
 Em tarefas de tradução automática, a ordem das palavras desempenha um papel
 fundamental na construção do significado semântico de uma sentença. A posição
 dos termos permite identificar relações de dependência entre palavras, além de
 influenciar diretamente a estrutura da frase na língua de destino, uma vez que
-diferentes idiomas apresentam diferentes organizações sintáticas.
+diferentes idiomas apresentam diferentes organizações sintáticas \cite{DBLP:journals/corr/VaswaniSPUJGKP17}.
 
 Como a arquitetura Transformer não possui mecanismos recorrentes ou
 convolucionais, ela não é capaz de capturar informações de ordem de forma
@@ -304,7 +304,7 @@ No contexto da arquitetura Transformer, o mecanismo de atenção é implementado
 por meio da chamada \textit{Scaled Dot-Product Attention}. Esse mecanismo
 calcula a relevância entre diferentes elementos da sequência de entrada
 utilizando três componentes principais: consultas (\textit{queries}), chaves
-(\textit{keys}) e valores (\textit{values}).
+(\textit{keys}) e valores (\textit{values}) \cite{DBLP:journals/corr/VaswaniSPUJGKP17}.
 
 A atenção é calculada por meio do produto escalar entre consultas e chaves,
 seguido de uma normalização utilizando a função softmax, conforme a equação \ref{eq:attention-mecanism}
@@ -330,13 +330,13 @@ no produto escalar, o que poderia prejudicar a estabilidade da função softmax.
 O mecanismo de \textit{multi-head attention} é uma extensão do mecanismo de
 atenção utilizado na arquitetura Transformer, cujo objetivo é permitir que o
 modelo capture diferentes tipos de relações entre os elementos de uma sequência
-de forma paralela.
+de forma paralela \cite{liu2021multi}.
 
 Diferentemente da atenção simples, que realiza uma única projeção sobre as
 matrizes de consultas, chaves e valores, o \textit{multi-head attention}
 projeta essas matrizes múltiplas vezes em diferentes subespaços vetoriais. Cada
 uma dessas projeções é processada por um mecanismo de atenção independente,
-denominado \textit{head}.
+denominado \textit{head} \cite{liu2021multi}.
 
 Essa abordagem permite que o modelo aprenda diferentes representações e
 relações entre os \textit{tokens}, como dependências sintáticas e semânticas,
@@ -376,11 +376,11 @@ mecanismo de atenção (\textit{self-attention}), responsável por relacionar os
 \textit{tokens} da sequência entre si, permitindo a captura de dependências de curto e
 longo alcance. A segunda subcamada é a rede \textit{feed-forward}, aplicada de
 forma independente a cada posição da sequência, com o objetivo de transformar e
-enriquecer as representações vetoriais geradas pela etapa anterior.
+enriquecer as representações vetoriais geradas pela etapa anterior \cite{build-llms-from-scratch-book}.
 
 Após cada subcamada, são aplicadas operações de normalização e conexões
 residuais, com a finalidade de estabilizar o treinamento e preservar
-informações importantes ao longo das camadas do modelo.
+informações importantes ao longo das camadas do modelo \cite{build-llms-from-scratch-book}.
 
 Ao final do processamento pelo encoder, é gerado um conjunto de vetores de
 representações contextuais, no qual cada vetor está associado a um token da
